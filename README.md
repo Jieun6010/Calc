@@ -14,7 +14,7 @@
 ![4](https://github.com/Jieun6010/Calc/assets/100116391/b7c0f17a-4eac-4ba7-b1a4-2a2f6c3479e1)
 
 
-### bmi
+### Bmi
 
 ---
 
