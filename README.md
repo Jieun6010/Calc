@@ -26,4 +26,4 @@
 
 ---
 
-![calc 1-6](https://github.com/Jieun6010/Calc/assets/100116391/bc9abf53-686f-47c7-b600-bb087af47751)
+![dday](https://github.com/Jieun6010/Calc/assets/100116391/38547f83-d97f-43dd-829a-4465a04475af)
