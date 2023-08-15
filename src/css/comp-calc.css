@@ -1,0 +1,69 @@
+section.calc {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+section.calc p.output {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 150px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+  padding: 15px;
+  font-size: 2em;
+  font-weight: 600;
+  border: 1px solid var(#fff, 0.3);
+  box-shadow: -2px -2px 5px rgb(255, 255, 255), 3px 3px 5px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.3);
+  letter-spacing: 0.2em;
+}
+section.calc p.output span {
+  word-break: break-all;
+}
+section.calc p.output span::after {
+  content: "|";
+  font-weight: 100;
+  animation: cursor 1s infinite;
+}
+section.calc ul.btn-container {
+  height: 65%;
+  display: flex;
+  flex-wrap: wrap;
+}
+section.calc ul.btn-container:hover {
+  font-size: 0.8em;
+}
+section.calc ul.btn-container li {
+  width: 25%;
+  height: 20%;
+  box-sizing: border-box;
+  padding: 7px;
+}
+section.calc ul.btn-container li button {
+  width: 100%;
+  height: 100%;
+  font-size: 1.5em;
+  font-weight: 900;
+  box-shadow: -2px -2px 2px white, 2px 2px 2px rgba(0, 0, 0, 0.1);
+  transition: font-size 0.2s;
+}
+section.calc ul.btn-container li button:active {
+  box-shadow: -2px -2px 2px rgba(0, 0, 0, 0.1), 2px 2px 2px white;
+}
+section.calc ul.btn-container li button:hover {
+  font-size: 2.3em;
+}
+section.calc .calc-modal {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #FFF;
+  background: rgba(0, 0, 0, 0.8);
+}/*# sourceMappingURL=comp-calc.css.map */

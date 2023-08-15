@@ -1,0 +1,171 @@
+@use './mixin' as m;
+
+section.bmi {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  form {
+    div.radios {
+      p {
+        display: flex;
+        position: relative;
+        input {
+          // display: none; 리액트에서는 이렇게 하면 안됨. 리콰이어드 속성을 찾기 못함. 접근을 못해서 경고메세지 발생.
+          border: none;
+          width: 1px;
+          height: 1px;
+          opacity: 0;
+          background: none;
+          @include m.posLT(absolute,50%,50%,-50%,-50%);
+          &:checked + label {
+            font-weight: 600;
+            text-shadow: inset -2px -2px 5px rgba(255, 255, 255, 1), inset 3px 3px 5px rgba(0, 0, 0, 0.1); // inset 그림자를 박히게 ! 음푹 파이는 효과
+            box-shadow: inset -2px -2px 5px rgba(255, 255, 255, 1), inset 3px 3px 5px rgba(0, 0, 0, 0.1);
+          } // &:checked + label
+        } // input
+        label {
+          flex: 1;
+          text-align: center;
+          padding: 10px 0;
+          cursor: pointer;
+          box-shadow: -2px -2px 5px rgba(255, 255, 255, 1), 3px 3px 5px rgba(0, 0, 0, 0.1);
+          &:first-of-type {
+            border-radius: 30px 0 0 30px;
+          }
+          &:last-of-type {
+            border-radius: 0 30px 30px 0;
+          }
+        } // label
+      } //p
+    } // div.radios
+    > div {
+      padding: 15px 0;
+      border-bottom: 5px groove rgba(#fff, 0.1);
+      > label {
+        display: block;
+        margin-bottom: 10px;
+      } // label
+      input[type="number"] {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 5px 5px;
+        border: none;
+        outline: none;
+        background: rgba(#fff, 0.4);
+        box-shadow: inset -2px -2px 5px rgba(255, 255, 255, 1), inset 3px 3px 5px rgba(0, 0, 0, 0.3);
+        &:focus {
+          background: rgba(#fff, 0.8);
+        } // focus
+        &::placeholder {
+          color: rgba(#000, 0.2);
+        } // placeholder
+      } // input
+    } // div
+    button {
+      margin-top: 15px;
+      width: 100%;
+      padding: 10px 0;
+      outline: none;
+      box-shadow: -2px -2px 5px rgba(255, 255, 255, 1), 3px 3px 5px rgba(0, 0, 0, 0.1);
+      border-radius: 50px;
+      &:focus {
+        background: rgba(#fff, 0.2);
+      } // focus
+      &:active {
+        box-shadow: inset -2px -2px 5px rgba(255, 255, 255, 1), inset 3px 3px 5px rgba(0, 0, 0, 0.1);
+      } // button active
+    } // button
+  } // form
+
+  div.bmi-result {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    left: 100%;
+    top: 0;
+    justify-content: center;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 15px;
+    background: rgba(#fff, 0.8);
+    transition: all 0.3s;
+    &.active {
+      left: 0;
+    } // active
+    .output{
+      position: relative;
+      height: 75%;
+      margin-bottom: 30px;
+      text-align: center;
+      background: #FFF;
+      border: 1px solid #d69fb2;
+      &.result{
+        background: #FFF;
+        p{
+          @include m.posLT(absolute,50%,50%,-50%,-50%);
+          font-size: 2em;
+          font-weight: 600;
+          opacity: 0.5;
+        }
+      } // result
+      &.err{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        p{
+          position: relative;
+          margin: 20px 0;
+          color: #FFF;
+          i{
+            color:rgba( #FFF,0.5);
+            font-size:  8em;
+          } // i
+          i:last-child{
+            font-size: 15em;
+            @include m.posLT(absolute,50%,50%,-50%,-50%)
+          }
+        } // p
+        background: #000
+      }
+      svg.morph{
+        @include m.posLT(absolute,50%,50%,-50%,-50%);
+        height: 100%;
+        bottom: 0;
+        opacity: 0.8;
+        .org{
+          fill: #8facca;
+        }
+      }
+      }
+      .board{
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        .pin{
+          position: absolute;
+          bottom: 0;
+          right: 50%;
+          width: 30%;
+          /* transform: translate(7%) */
+          transform-origin: 93% center;
+          transition: trasform 1s;
+          transition-timing-function: cubic-bezier(0.64, 0.57, 0.67, 1.53);
+        }
+      }
+    } // output
+    button {
+      padding: 10px;
+      background: rgba(#FFF, 0.5);
+      border: 2px solid #FFF;
+      border-radius: 50px;
+      box-shadow: -2px -2px 5px rgba(255, 255, 255, 1), 3px 3px 5px rgba(0, 0, 0, 0.1);
+      &:active {
+        box-shadow: inset -2px -2px 5px rgba(255, 255, 255, 1), inset 3px 3px 5px rgba(0, 0, 0, 0.1);
+      } // button active
+    } // result button
+  } // bmi-result
+

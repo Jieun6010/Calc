@@ -1,0 +1,95 @@
+#root section.menu {
+  display: flex;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#root section.menu h1 {
+  margin-bottom: 60px;
+}
+#root section.menu form.theme legend {
+  margin-bottom: 10px;
+  font-weight: 800;
+  font-size: 0.8em;
+  text-align: center;
+}
+#root section.menu form.theme div {
+  display: flex;
+  width: 180px;
+  height: 30px;
+  border-radius: 30px;
+  border: 1px solid #eee;
+  overflow: hidden;
+  box-shadow: -2px -2px 10px rgb(255, 255, 255), 3px 3px 5px rgba(0, 0, 0, 0.1);
+}
+#root section.menu form.theme div input {
+  display: none;
+}
+#root section.menu form.theme div input:checked + label {
+  opacity: 1;
+}
+#root section.menu form.theme div input:checked + label::before {
+  display: inline-block;
+}
+#root section.menu form.theme div label {
+  flex: 1;
+  position: relative;
+  cursor: pointer;
+  opacity: 0.3;
+}
+#root section.menu form.theme div label:hover {
+  opacity: 1;
+}
+#root section.menu form.theme div label::before {
+  content: "\f00c";
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+#root section.menu form.theme div label[for=radio1] {
+  background: #e0dcdc;
+}
+#root section.menu form.theme div label[for=radio2] {
+  background: #f3abcd;
+}
+#root section.menu form.theme div label[for=radio3] {
+  background: #a1ccf5;
+}
+#root section.menu form.theme div label::before {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+}
+#root section.menu nav {
+  margin-top: 20px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+#root section.menu nav a {
+  display: block;
+  padding: 7px 20px;
+  margin: 20px 0;
+  box-shadow: -2px -2px 5px rgb(255, 255, 255), 3px 3px 1px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  border-radius: 10px;
+}
+#root section.menu nav a:hover {
+  text-shadow: -2px -2px 1px rgb(255, 255, 255), 3px 3px 1px rgba(0, 0, 0, 0.1);
+}
+#root section.menu nav a:active {
+  box-shadow: -2px -2px 5px rgba(0, 0, 0, 0.2), 3px 3px 5px rgb(255, 255, 255);
+}
+#root section.menu nav a i {
+  margin-right: 10px;
+  font-size: 1.3em;
+}/*# sourceMappingURL=comp-menu.css.map */

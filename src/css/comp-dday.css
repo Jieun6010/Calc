@@ -1,0 +1,316 @@
+section.dday {
+  display: flex;
+  flex-direction: column;
+}
+section.dday article.dday-list {
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+section.dday article.dday-list::before {
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url(../assets/img/timer-icon2.gif);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  mix-blend-mode: overlay;
+  opacity: 0.8;
+  filter: grayscale(1) brightness(50%);
+}
+section.dday article.dday-list .filter-btn {
+  position: absolute;
+  left: calc(50% - 25px);
+  border-radius: 0 0 5px 5px;
+  width: 40px;
+  height: 40px;
+  top: px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #000;
+  z-index: 1;
+  transition: all 0.2s;
+}
+section.dday article.dday-list .filter-btn:hover {
+  font-size: 1.4em;
+}
+section.dday article.dday-list .filter-btn i:last-child {
+  display: none;
+}
+section.dday article.dday-list .filter-btn.active {
+  color: red;
+}
+section.dday article.dday-list .filter-btn.active i:first-child {
+  display: none;
+}
+section.dday article.dday-list .filter-btn.active i:last-child {
+  display: block;
+}
+section.dday article.dday-list .filter-form {
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 15px;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.7);
+  transform: translateY(-100%);
+  transition: transform 1s;
+}
+section.dday article.dday-list .filter-form.active {
+  transform: translateY(0%);
+}
+section.dday article.dday-list .filter-form fieldset {
+  margin-bottom: 15px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  padding: 10px;
+}
+section.dday article.dday-list .filter-form fieldset legend {
+  font-size: 0.9em;
+  padding: 5px 10px;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  border-radius: 5px;
+}
+section.dday article.dday-list .filter-form fieldset button {
+  width: 100%;
+  margin-top: 15px;
+  padding: 10px 0;
+  outline: none;
+  box-shadow: -2px -2px 5px rgb(255, 255, 255), 3px 3px 5px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  color: var(--pink);
+}
+section.dday article.dday-list .filter-form fieldset button:active {
+  box-shadow: inset -2px -2px 5px rgb(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, 0.1);
+}
+section.dday article.dday-list .filter-form fieldset input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  border: none;
+  outline: none;
+  box-shadow: inset -2px -2px 5px rgb(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, 0.1);
+}
+section.dday article.dday-list .filter-form fieldset input:focus {
+  background: #000;
+  color: #FFF;
+}
+section.dday article.dday-list > ul {
+  flex: 1 0 1px;
+  overflow: auto;
+  margin: 15px 0;
+}
+section.dday article.dday-list > ul > li {
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 15px 0;
+  border-bottom: 2px groove rgba(255, 255, 255, 0.3);
+}
+section.dday article.dday-list > ul > li.active {
+  background: rgba(0, 0, 255, 0.3);
+}
+section.dday article.dday-list > ul > li.deactive {
+  background: rgba(0, 0, 0, 0.3);
+}
+section.dday article.dday-list > ul > li div.meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+section.dday article.dday-list > ul > li div.meta h3 {
+  max-width: 60%;
+  font-weight: 600;
+  font-size: 1.1em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+section.dday article.dday-list > ul > li div.meta p time {
+  display: block;
+  text-align: center;
+  font-size: 0.8em;
+}
+section.dday article.dday-list > ul > li div.meta p time small,
+section.dday article.dday-list > ul > li div.meta p time em {
+  margin: 0 2px;
+}
+section.dday article.dday-list > ul > li div.meta p time small {
+  font-size: 0.9em;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+section.dday article.dday-list > ul > li > ul.timer-output {
+  display: flex;
+  margin-top: 10px;
+}
+section.dday article.dday-list > ul > li > ul.timer-output > li {
+  flex: 1;
+  padding: 5px;
+}
+section.dday article.dday-list > ul > li > ul.timer-output > li figure {
+  position: relative;
+  margin-bottom: 8px;
+}
+section.dday article.dday-list > ul > li > ul.timer-output > li figure svg {
+  transform: rotate(-90deg);
+  width: 100%;
+}
+section.dday article.dday-list > ul > li > ul.timer-output > li figure svg circle {
+  fill: none;
+  stroke: white;
+  transition: stroke-offset 0.2s;
+}
+section.dday article.dday-list > ul > li > ul.timer-output > li figure svg circle:nth-child(1) {
+  stroke-width: 2;
+  stroke: white;
+}
+section.dday article.dday-list > ul > li > ul.timer-output > li figure svg circle:nth-child(2) {
+  stroke-width: 6;
+  stroke: white;
+}
+section.dday article.dday-list > ul > li > ul.timer-output > li figure figcaption {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5em;
+  font-weight: 900;
+}
+section.dday article.dday-list > ul > li > ul.timer-output > li p {
+  text-align: center;
+  font-size: 0.9em;
+}
+section.dday article.dday-list > ul > li > ul.timer-output > li p em {
+  display: block;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+section.dday article.dday-list > ul > li > ul.timer-output > li p small {
+  font-size: 1.05em;
+  font-weight: 500;
+}
+section.dday article.dday-list .no-msg {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.2em;
+}
+section.dday .btn-add {
+  width: 100%;
+  padding: 10px 0;
+  outline: none;
+  box-shadow: -2px -2px 5px rgb(255, 255, 255), 3px 3px 5px rgba(0, 0, 0, 0.1);
+}
+section.dday .btn-add:hover {
+  color: #fff;
+}
+section.dday .btn-add img {
+  display: inline-block;
+  width: 30px;
+  margin-right: 10px;
+  vertical-align: middle;
+  mix-blend-mode: multiply;
+  filter: grayscale(1) brightness(170%);
+}
+section.dday .btn-add:focus {
+  background: rgba(255, 255, 255, 0.1);
+}
+section.dday .btn-add:active {
+  box-shadow: inset -2px -2px 5px rgb(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, 0.1);
+}
+section.dday form.dday-add {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+section.dday form.dday-add p {
+  padding: 15px 0;
+  border-top: 2px groove rgba(255, 255, 255, 0.5);
+}
+section.dday form.dday-add p label {
+  display: block;
+  margin-bottom: 10px;
+}
+section.dday form.dday-add p input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  border: none;
+  background: rgba(255, 255, 255, 0.4);
+  outline: none;
+  box-shadow: inset -2px -2px 5px rgb(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, 0.1);
+}
+section.dday form.dday-add p input:focus {
+  background: rgba(255, 255, 255, 0.8);
+}
+section.dday form.dday-add p input::placeholder {
+  color: inherit;
+}
+section.dday form.dday-add p input::-webkit-calendar-picker-indicator {
+  filter: invert(10%);
+  mix-blend-mode: color-burn;
+}
+section.dday form.dday-add button {
+  width: 100%;
+  margin-top: 15px;
+  padding: 10px;
+  outline: none;
+  box-shadow: -2px -2px 5px rgb(255, 255, 255), 3px 3px 5px rgba(0, 0, 0, 0.1);
+}
+section.dday form.dday-add button:hover {
+  color: #fff;
+}
+section.dday form.dday-add button:focus {
+  background: rgba(255, 255, 255, 0.1);
+}
+section.dday form.dday-add button:active {
+  box-shadow: inset -2px -2px 5px rgb(255, 255, 255), inset 3px 3px 5px rgba(0, 0, 0, 0.1);
+}
+section.dday .fa-people-pulling {
+  font-size: 1.5em;
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+section.dday .fa-people-pulling.active {
+  transform: scale(1.2);
+}
+section.dday .fa-people-pulling:hover {
+  color: #fff;
+}
+section.dday div.now {
+  text-align: center;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  color: #000;
+}
+section.dday div.now time {
+  display: block;
+}
+section.dday div.now time b,
+section.dday div.now time small {
+  margin: 0 3px;
+}
+section.dday div.now time small {
+  font-size: 0.7em;
+  font-weight: 600;
+  text-transform: uppercase;
+  opacity: 0.7;
+}/*# sourceMappingURL=comp-dday.css.map */
